@@ -30,10 +30,11 @@ public class WebDriverFactory {
                 webdriver = new FirefoxDriver();
                 break;
             case("chrome"):
-                System.setProperty("webdriver.chrome.driver", "/Users/twer/Downloads/chromedriver");
+                System.setProperty("webdriver.chrome.driver", "C:\\Users\\twer\\Desktop\\chromedriver_win32\\chromedriver.exe");
                 webdriver = new ChromeDriver();
                 break;
             case("ie"):
+            	System.setProperty("webdriver.ie.driver", "C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe");
                 webdriver = new InternetExplorerDriver();
                 break;
             default:
