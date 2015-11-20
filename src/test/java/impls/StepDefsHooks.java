@@ -15,11 +15,6 @@ public class StepDefsHooks {
 
     @After
     public void tearDown(Scenario scenario) {
-        String browser = System.getProperty("browser", "firefox");
-        scenario.write("%%%%%%%%%%%%%");
-        scenario.write("%%%%%%%%%%%%%");
-        scenario.write("%%%%%%%%%%%%%");
-        scenario.write("%%%%%%%%%%%%%");
         if (scenario.isFailed()) {
             final byte[] screenshot = ((TakesScreenshot) WebDriverFactory.getWebDriver())
                     .getScreenshotAs(OutputType.BYTES);

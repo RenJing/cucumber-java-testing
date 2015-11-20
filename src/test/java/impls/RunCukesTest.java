@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/features/completed"},
+        features = {"src/test/resources/features/completed"},
         glue = {"impls"},
         plugin = {"html:target/cucumber-report/all"},
         tags = {"~@ignore"}
