@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class WebDriverFactory {
     private static WebDriver webdriver;
@@ -30,12 +32,15 @@ public class WebDriverFactory {
                 webdriver = new FirefoxDriver();
                 break;
             case("chrome"):
-                System.setProperty("webdriver.chrome.driver", "C:\\Users\\twer\\Desktop\\chromedriver_win32\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "/Users/twer/Downloads/chromedriver");
                 webdriver = new ChromeDriver();
                 break;
             case("ie"):
-            	System.setProperty("webdriver.ie.driver", "C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe");
-                webdriver = new InternetExplorerDriver();
+                DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+                capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+                capabilities.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING, true);
+                capabilities.setCapability("requireWindowFocus", true);
+                webdriver = new InternetExplorerDriver(capabilities);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown driver specified, only 'firefox', 'chrome', 'ie' are supported");
