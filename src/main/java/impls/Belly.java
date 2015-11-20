@@ -1,4 +1,4 @@
-package skeleton;
+package impls;
 
 public class Belly {
     public void eat(int cukes) {

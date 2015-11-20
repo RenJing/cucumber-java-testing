@@ -1,10 +1,8 @@
-package skeleton;
+package impls;
 
-import config.WebDriverFactory;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Stepdefs {
@@ -12,7 +10,7 @@ public class Stepdefs {
     private String url;
 
     public Stepdefs() {
-        this.webDriver = WebDriverFactory.getWebDriver();
+//        this.webDriver = WebDriverFactory.getWebDriver();
         this.url = "http://www.baidu.com";
     }
 
@@ -20,8 +18,8 @@ public class Stepdefs {
     public void I_have_cukes_in_my_belly(int cukes) throws Throwable {
         Belly belly = new Belly();
         belly.eat(cukes);
-        webDriver.get(url);
-        webDriver.findElement(By.id("test"));
+//        webDriver.get(url);
+//        webDriver.findElement(By.id("test"));
     }
     
     @When("^I wait (\\d+) hour$")
