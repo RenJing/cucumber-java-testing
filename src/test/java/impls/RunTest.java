@@ -8,9 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/resources/features/completed"},
         glue = {"impls"},
-        plugin = {"html:target/cucumber-report/all"},
         tags = {"~@ignore"}
 )
-public class RunCukesTest {
+public class RunTest {
 
 }
