@@ -5,10 +5,11 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import helper.WebDriverFactory;
 import org.junit.Assert;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginSteps {
     private WebDriver webDriver;
@@ -36,11 +37,13 @@ public class LoginSteps {
     public void i_click_login_button() throws Throwable {
     	WebElement loginButton = webDriver.findElement(By.id("loginButton"));
     	loginButton.click();
-    }  
-    
-    @Then("^I should see not registered error message$")
-    public void i_should_see_not_registered_error_message() throws Throwable {
-         String errorMessage = webDriver.findElement(By.id("alertDiv")).getText();
-         Assert.assertEquals("用户号码未注册，请先注册", errorMessage);
+    }
+
+    @Then("^I should see error message \"([^\"]*)\"$")
+    public void i_should_see_error_message(String expectedErrorMessage) {
+        WebElement element = (new WebDriverWait(webDriver, 5))
+                .until(ExpectedConditions.elementToBeClickable(By.id("alertDiv")));
+        String errorMessage = element.getText();
+        Assert.assertEquals(expectedErrorMessage, errorMessage);
     }
 }
