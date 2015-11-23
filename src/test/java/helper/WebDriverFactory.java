@@ -20,6 +20,7 @@ public class WebDriverFactory {
     public static void quitDriver() {
         if (null != webdriver) {
             webdriver.quit();
+            webdriver = null;
         }
     }
 
