@@ -20,6 +20,6 @@ public class StepDefsHooks {
                     .getScreenshotAs(OutputType.BYTES);
             scenario.embed(screenshot, "image/png"); //stick it in the report
         }
-        WebDriverFactory.getWebDriver().close();
+        WebDriverFactory.quitDriver();
     }
 }
