@@ -36,13 +36,7 @@ public class LoginSteps {
     public void i_click_login_button() throws Throwable {
     	WebElement loginButton = webDriver.findElement(By.id("loginButton"));
     	loginButton.click();
-    }
-
-    @Then("^I should log in successfully$")
-    public void i_should_log_in_successfully() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-//        throw new PendingException();
-    }   
+    }  
     
     @Then("^I should see not registered error message$")
     public void i_should_see_not_registered_error_message() throws Throwable {
