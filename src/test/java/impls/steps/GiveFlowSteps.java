@@ -62,4 +62,10 @@ public class GiveFlowSteps {
     public void i_select_friend_with_name(String name) {
         giveFlowPage.chooseFriend(name);
     }
+
+    @Given("^I should see flow not enough error message$")
+    public void i_should_see_flow_not_enough_error_message() {
+        String errorMessage = giveFlowPage.getSubmitErrorMessage();
+        Assert.assertEquals("xxxx", errorMessage);
+    }
 }

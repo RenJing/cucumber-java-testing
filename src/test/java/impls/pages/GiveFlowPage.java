@@ -34,7 +34,7 @@ public class GiveFlowPage extends BasePage {
 
     public void clickGiveButton() {
         webDriver.findElement(By.id("giveSubmit")).click();
-        waitForElementVisible(By.id("not exist")); // fail
+//        waitForElementVisible(By.id("not exist")); // fail
     }
 
     public void chooseFriend(String name) {
@@ -44,5 +44,10 @@ public class GiveFlowPage extends BasePage {
         webDriver.findElement(By.id("moveright")).click();
         waitForElementVisible(By.cssSelector("#select2 option"));
         webDriver.findElement(By.id("submitDonee")).click();
+    }
+
+    public String getSubmitErrorMessage() {
+        waitForAlertPresent();
+        return webDriver.switchTo().alert().getText();
     }
 }
