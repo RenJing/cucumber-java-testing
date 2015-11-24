@@ -31,4 +31,18 @@ public class GiveFlowPage extends BasePage {
         WebElement flowSizeRadio = webDriver.findElement(By.cssSelector(String.format("input[name='flowSize'][value='%s']", number)));
         flowSizeRadio.click();
     }
+
+    public void clickGiveButton() {
+        webDriver.findElement(By.id("giveSubmit")).click();
+        waitForElementVisible(By.id("not exist")); // fail
+    }
+
+    public void chooseFriend(String name) {
+        webDriver.findElement(By.id("choiceFriends")).click();
+        waitForElementVisible(By.id("friends"));
+        webDriver.findElement(By.xpath(String.format("//*[@id='select1']/option[contains(text(), '%s')]", name))).click();
+        webDriver.findElement(By.id("moveright")).click();
+        waitForElementVisible(By.cssSelector("#select2 option"));
+        webDriver.findElement(By.id("submitDonee")).click();
+    }
 }

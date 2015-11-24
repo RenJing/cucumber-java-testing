@@ -46,8 +46,8 @@ public class GiveFlowSteps {
     }
 
     @When("^I click give button$")
-    public void i_click_give_button() throws Exception {
-        throw new Exception("aha");
+    public void i_click_give_button() {
+        giveFlowPage.clickGiveButton();
     }
 
     @When("^I click confirm button$")
@@ -56,5 +56,10 @@ public class GiveFlowSteps {
 
     @Then("^I should see succeed message$")
     public void i_should_see_succeed_message() {
+    }
+
+    @When("^I select friend with name \"([^\"]*)\"$")
+    public void i_select_friend_with_name(String name) {
+        giveFlowPage.chooseFriend(name);
     }
 }
