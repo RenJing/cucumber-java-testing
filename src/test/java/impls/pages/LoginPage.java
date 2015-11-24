@@ -2,36 +2,36 @@ package impls.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage {
-    public static final String URL = "http://data.10086.cn/pc/login.do";
-    private WebDriver webDriver;
+public class LoginPage extends BasePage {
+    public static final String URL = "login.do";
 
     public LoginPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
     }
 
     public void enterMobileNumber(String mobileNumber) {
-        WebElement mobileInput = webDriver.findElement(By.id("mobile"));
-        mobileInput.sendKeys(mobileNumber);
+        webDriver.findElement(By.id("mobile")).sendKeys(mobileNumber);
     }
 
     public void enterPassword(String password) {
-        WebElement passwordInput = webDriver.findElement(By.id("password"));
-        passwordInput.sendKeys(password);
+        webDriver.findElement(By.id("password")).sendKeys(password);
     }
 
     public void clickLoginButton() {
-        WebElement loginButton = webDriver.findElement(By.id("loginButton"));
-        loginButton.click();
+        webDriver.findElement(By.id("loginButton")).click();
     }
 
     public String getLoginErrorMessage() {
-        WebElement element = (new WebDriverWait(webDriver, 5))
-                .until(ExpectedConditions.elementToBeClickable(By.id("alertDiv")));
-        return element.getText();
+        return waitForElementVisible(By.id("alertDiv")).getText();
+    }
+
+    public void enterCaptcha(String captcha) {
+        webDriver.findElement(By.id("checkCode")).sendKeys(captcha);
+    }
+
+    @Override
+    protected String getAction() {
+        return URL;
     }
 }
