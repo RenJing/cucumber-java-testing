@@ -5,6 +5,7 @@ Feature: Login
 #    And I click login button
 #    Then I should see not registered error message
 
+  @ignore
   Scenario Outline: should show error when user not registered
     Given I am on login page
     When I enter phone number "<mobile>" and password "<password>"

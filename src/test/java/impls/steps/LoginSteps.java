@@ -21,7 +21,7 @@ public class LoginSteps {
     }
 
     @Given("^I am on login page$")
-    public void i_am_on_login_page() throws Throwable {
+    public void i_am_on_login_page() {
         webDriver.get(loginPage.getURL());
     }
 

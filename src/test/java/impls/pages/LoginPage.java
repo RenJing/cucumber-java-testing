@@ -34,4 +34,10 @@ public class LoginPage extends BasePage {
     protected String getAction() {
         return URL;
     }
+
+    public void login(String mobile, String password) {
+        enterMobileNumber(mobile);
+        enterPassword(password);
+        clickLoginButton();
+    }
 }
