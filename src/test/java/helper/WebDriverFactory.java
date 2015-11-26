@@ -31,11 +31,11 @@ public class WebDriverFactory {
                 webdriver = new FirefoxDriver();
                 break;
             case("chrome"):
-                System.setProperty("webdriver.chrome.driver", "C:\\Users\\twer\\Desktop\\chromedriver_win32\\chromedriver.exe");
+                System.setProperty("webdriver.chrome.driver", "drivers\\chromedriver.exe");
                 webdriver = new ChromeDriver();
                 break;
             case("ie"):
-            	System.setProperty("webdriver.ie.driver", "C:\\Users\\twer\\Desktop\\IEDriverServer_x64_2.48.0\\IEDriverServer.exe");
+            	System.setProperty("webdriver.ie.driver", "drivers\\IEDriverServer.exe");
                 webdriver = new InternetExplorerDriver();
                 break;
             default:
